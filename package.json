@@ -1,6 +1,6 @@
 {
  "name": "@kirinnee/core",
- "version": "0.6.8",
+ "version": "0.6.9",
  "description": "Typescript Library that extends primitives to simulate standard library. Provide multiple common and performant utility function to manipulate primitives. ",
  "main": "index.js",
  "license": "MIT",
