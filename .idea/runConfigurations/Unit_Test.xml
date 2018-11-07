@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Unit Test" type="mocha-javascript-test-runner" factoryName="Mocha">
+    <node-interpreter>project</node-interpreter>
+    <node-options />
+    <working-directory>$PROJECT_DIR$</working-directory>
+    <pass-parent-env>true</pass-parent-env>
+    <ui>bdd</ui>
+    <extra-mocha-options>--opts ./config/mocha.opts --watch --watch-extensions ts</extra-mocha-options>
+    <test-kind>PATTERN</test-kind>
+    <test-pattern>./test/unit/**/*.spec.ts</test-pattern>
+    <method v="2" />
+  </configuration>
+</component>

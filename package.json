@@ -1,0 +1,46 @@
+{
+  "name": "@kirinnee/core",
+  "version": "0.0.1",
+  "description": "Typescript Library that extends primitives to simulate standard library. Provide multiple common and performant utility function to manipulate primitives. ",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "kirinnee",
+    "email": "kirinnee@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kirinnee/tslib.core.git"
+  },
+  "types": "./types/index.d.ts",
+  "scripts": {
+    "deploy": "node script deploy",
+    "build": "node script wp dist",
+    "dev": "node script wp dist -w",
+    "test": "node script unit",
+    "test:w": "node script unit -w",
+    "coverage": "node script unit --cover",
+    "patch": "node script publish patch",
+    "minor": "node script publish minor",
+    "major": "node script publish major"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@kirinnee/core": "^0.6.7",
+    "@types/chai": "^4.1.6",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.0",
+    "@types/uglifyjs-webpack-plugin": "^1.1.0",
+    "@types/webpack": "^4.4.17",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.0.1",
+    "rimraf": "^2.6.2",
+    "ts-loader": "^5.2.2",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.3",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  }
+}
