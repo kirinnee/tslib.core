@@ -34,8 +34,6 @@ async function Execute(command, args, watch) {
             break;
         case "publish":
             await run(`npm run deploy`);
-            await run(`git add .`); 
-            await run(`git commit -m "Preparing for next ${args[0]} version`); 
             await run(`npm version ${args[0]}`);
             await run(`npm publish`);
             break;
