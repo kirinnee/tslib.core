@@ -161,13 +161,6 @@ describe("String", () => {
 		});
 	});
 	
-	// describe("SkipWhile", () => {
-	// 	it("should return string with the first x characters skipped", () => {
-	// 		"1234567".SkipWhile((s: string) => s !== "4").should.equal("4567");
-	// 		"kirinee~!".SkipWhile((s: string) => s !== "r").should.equal("rinee~!");
-	// 	});
-	// });
-	
 	describe("Take", () => {
 		
 		it("should return first character if value is provided", () => {
@@ -187,13 +180,6 @@ describe("String", () => {
 			"kirinnee".Take(20).should.equal("kirinnee");
 		});
 	});
-	
-	// describe("TakeWhile", () => {
-	// 	it("should return string with only the first x characters", () => {
-	// 		"kirinnee".TakeWhile((s: string) => s !== "r").should.equal("ki");
-	// 		"kirinnee".TakeWhile((s: string) => s !== "z").should.equal("kirinnee");
-	// 	});
-	// });
 	
 	describe("Last", () => {
 		
@@ -215,13 +201,6 @@ describe("String", () => {
 		});
 	});
 	
-	// describe("LastWhile", () => {
-	// 	it("should return string with the last x characters", () => {
-	// 		"kirinnee".LastWhile((char: string) => char !== "i").should.equal("nnee");
-	// 		" fabricate  ".LastWhile((char: string) => char === " ").should.equal("  ")
-	// 	});
-	// });
-	
 	describe("Omit", () => {
 		it("should return string with the last x characters removed", () => {
 			"kirinnee".Omit(3).should.equal("kirin");
@@ -231,12 +210,6 @@ describe("String", () => {
 			"kirinnee".Omit(20).should.equal("");
 		});
 	});
-	
-	// describe("OmitWhile", () => {
-	// 	it("should return string with the last x characters removed", () => {
-	// 		"kirinnee".OmitWhile((char: string) => char !== "i").should.equal("kiri");
-	// 	});
-	// });
 	
 	describe("Repeat", () => {
 		it("should repeat the string x number of times", () => {

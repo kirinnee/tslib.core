@@ -717,13 +717,6 @@ declare global {
 		Values(): V[];
 		
 		/**
-		 * Converts it to a object literal
-		 * @param key conversion of key to string as object key
-		 * @constructor
-		 */
-		AsObject(key?: (k: K) => string): object;
-		
-		/**
 		 * Get the first key that matches the predicate
 		 * @param predicate condition
 		 * @constructor
@@ -968,13 +961,6 @@ interface Core {
 	 * @constructor
 	 */
 	IsArray(arr: any): boolean;
-	
-	/**
-	 * Flattens and object to a map
-	 * @param obj
-	 * @constructor
-	 */
-	FlattenObject(obj: object): Map<string, any>;
 	
 	/**
 	 * Equality check helper

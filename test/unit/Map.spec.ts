@@ -166,19 +166,6 @@ describe("Map", () => {
 			testMap.Each((k: Mock1) => k.a = k.a + 1).should.deep.equal(expected);
 		});
 	});
-	//
-	// describe("FilterNilValue", () => {
-	// 	it("should return map without any nil value", () => {
-	// 		let expected: Map<string, any> = new Map([
-	// 			["first", "kirin"],
-	// 			["second", " "],
-	// 			["third", " ~ "],
-	// 			["fourth", "kirin"],
-	// 			["fifth", "testing element"]
-	// 		]);
-	// 		map1.FilterNilValue().should.deep.equal(expected);
-	// 	});
-	// });
 	
 	describe("TrimValue", () => {
 		it("should return map with all the value trimmed", () => {
@@ -194,19 +181,6 @@ describe("Map", () => {
 			map12.TrimValue().should.deep.equal(expected);
 		});
 	});
-	//
-	// describe("FilterEmptyString", () => {
-	// 	it("should remove values empty strings or trimmed empty strings", () => {
-	// 		let expected: Map<string, string> = new Map([
-	// 			["firsts", "kirin"],
-	// 			["third", " ~ "],
-	// 			["abc", " wtf"],
-	// 			["fourths", " kirin"],
-	// 			["fifths", "testing element"]
-	// 		]);
-	// 		map12.FilterEmptyStringValue().should.deep.equal(expected);
-	// 	});
-	// });
 	
 	describe("SortByKey", () => {
 		describe("A-Z", () => {
@@ -1004,7 +978,7 @@ describe("Map", () => {
 				[n5, "apple"]
 			]);
 			
-			map23.TakeWhile((n: number) => n < 1).AsObject().should.deep.equal(expected1.AsObject());
+			map23.TakeWhile((n: number) => n < 1).Arr().should.deep.equal(expected1.Arr());
 			map42.TakeWhile((k: Mock2, v: string) => v !== "Pear").should.deep.equal(expected2);
 		});
 	});
@@ -1200,18 +1174,6 @@ describe("Map", () => {
 			map2.Values().should.deep.equal(expected);
 			
 		});
-	});
-	
-	describe("AsObject", () => {
-		let expected: object = {
-			orange: n1,
-			pear: n2,
-			apple: n5,
-			Pear: n4,
-			Coco: n9,
-			coconut: n3
-		};
-		map4.AsObject((s: string) => s).should.deep.equal(expected);
 	});
 	
 	describe("Find", () => {

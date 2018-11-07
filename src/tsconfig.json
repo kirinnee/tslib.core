@@ -1,26 +1,27 @@
 {
 	"compilerOptions": {
-		"module": "esnext",
-		"target": "es5",
-		"sourceMap": true,
-		"removeComments": false,
-		"moduleResolution": "node",
-		"noUnusedLocals": true,
-		"noImplicitReturns": true,
-		"noFallthroughCasesInSwitch": true,
-		"strictNullChecks": true,
+		"module":                       "esnext",
+		"target":                       "es5",
+		"sourceMap":                    true,
+		"removeComments":               false,
+		"moduleResolution":             "node",
+		"noUnusedLocals":               true,
+		"noImplicitReturns":            true,
+		"noFallthroughCasesInSwitch":   true,
+		"strictNullChecks":             true,
 		"strictPropertyInitialization": true,
-		"experimentalDecorators": true,
+		"experimentalDecorators":       true,
 		"allowSyntheticDefaultImports": true,
-		"esModuleInterop": true,
-		"lib": [
+		"esModuleInterop":              true,
+		"strictFunctionTypes":          true,
+		"lib":                          [
 			"dom",
 			"es5",
 			"es6",
 			"es7",
 			"esnext"
 		],
-		"declaration": true,
-		"declarationDir": "../types"
+		"declaration":                  true,
+		"declarationDir":               "../types"
 	}
 }

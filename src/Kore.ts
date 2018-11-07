@@ -5,12 +5,7 @@ export class Kore implements Core {
 	AssertExtend(): void {
 		if (!this.IsExtended) this.t("Core needs to be extended");
 	}
-	// readonly SPACE: string = "&nbsp;";
-	// readonly LEFT_TAG: string = "&lt;";
-	// readonly RIGHT_TAG: string = "&gt;";
-	// readonly AMPERSAND: string = "&amp;";
-	// readonly SINGLE_QUOTE: string = "&#39;";
-	// readonly DOUBLE_QUOTE: string = "&quot;";
+	
 	
 	private readonly m: string = ' _-,;:!?.\'"()[]{ }@*/\&#%`^+<=>|~$0123456789aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ';
 	
@@ -20,150 +15,7 @@ export class Kore implements Core {
 	
 	ExtendPrimitives() {
 		let c: Kore = this;
-		// String.prototype.EscapeChar = function (space: boolean): string {
-		// 	if (this.length > 1) {
-		// 		c.t("Only can escape characters. String cannot be longer than 1");
-		// 	}
-		// 	switch (this) {
-		// 		case "&":
-		// 			return c.AMPERSAND;
-		// 		case "<":
-		// 			return c.LEFT_TAG;
-		// 		case ">":
-		// 			return c.RIGHT_TAG;
-		// 		case "'":
-		// 			return c.SINGLE_QUOTE;
-		// 		case '"':
-		// 			return c.DOUBLE_QUOTE;
-		// 		case " ":
-		// 			return space ? c.SPACE : this;
-		// 		default:
-		// 			return this;
-		// 	}
-		// };
-		// String.prototype.EscapeHTML = function (space: boolean): string {
-		// 	return this.split('').Map((s: string) => s.EscapeChar(space)).join("");
-		// };
-		// // String.prototype.BreakIntoArray = function (cArr: string[] = []): string[] {
-		// // 	if (this.length === 0) return cArr;
-		// // 	let f: string = this.charAt(0);
-		// // 	if (f !== "&") {
-		// // 		cArr.push(f);
-		// // 		return this.Skip(1).BreakIntoArray(cArr);
-		// // 	} else {
-		// // 		let ret: string = this;
-		// // 		let six = this.Take(6);
-		// // 		let five = this.Take(5);
-		// // 		let four = this.Take(4);
-		// // 		if (six === c.SPACE) {
-		// // 			cArr.push(c.SPACE);
-		// // 			ret = this.Skip(6);
-		// // 		} else if (six === c.DOUBLE_QUOTE) {
-		// // 			cArr.push(c.DOUBLE_QUOTE);
-		// // 			ret = this.Skip(6);
-		// // 		} else if (five === c.AMPERSAND) {
-		// // 			cArr.push(c.AMPERSAND);
-		// // 			ret = this.Skip(5);
-		// // 		} else if (five === c.SINGLE_QUOTE) {
-		// // 			cArr.push(c.SINGLE_QUOTE);
-		// // 			ret = this.Skip(5);
-		// // 		} else if (four === c.LEFT_TAG) {
-		// // 			cArr.push(c.LEFT_TAG);
-		// // 			ret = this.Skip(4);
-		// // 		} else if (four === c.RIGHT_TAG) {
-		// // 			cArr.push(c.RIGHT_TAG);
-		// // 			ret = this.Skip(4);
-		// // 		} else {
-		// // 			cArr.push(f);
-		// // 			ret = this.Skip(1);
-		// // 		}
-		// // 		return ret.BreakIntoArray(cArr);
-		// // 	}
-		// // };
-		// String.prototype.WrapIn = function (tag: string): string {
-		// 	return `<${tag}>${this}</${tag}>`;
-		// };
-		// String.prototype.RemoveURLVariable = function (): string {
-		// 	let split: string[] = this.split('?');
-		// 	return split.length === 1 ? this : split.Omit(1).join('?');
-		// };
-		//
-		// String.prototype.IsFile = function (): boolean {
-		// 	return c.IsFile(this as string);
-		// };
-		//
-		// String.prototype.HasDir = function (): boolean {
-		// 	return c.fileCheck(this).split("/").length > 1;
-		// };
-		//
-		// String.prototype.GetExt = function (): string {
-		// 	return "." + c.fileCheck(this).split('.').pop();
-		// };
-		//
-		// String.prototype.GetName = function (): string {
-		// 	return c.fileCheck(this)
-		// 		.split(".")
-		// 		.Omit(1)
-		// 		.join(".")
-		// 		.split("/").pop()!;
-		// };
-		//
-		// String.prototype.GetDir = function (): string {
-		// 	let path = c.fileCheck(this);
-		// 	if (!path.HasDir()) return "";
-		// 	return path.split(".").Omit(1).join(".").split("/").Omit(1).join("/").FormatDir();
-		// };
-		//
-		// String.prototype.ReplaceExt = function (replacement: string): string {
-		// 	let path = c.fileCheck(this);
-		// 	if (replacement.Starts(".")) replacement = replacement.Skip(1);
-		// 	return path.GetDir().FormatDir() + (path.GetName() + "." + replacement).FormatFile();
-		// };
-		//
-		// String.prototype.EditExt = function (modify: (s: string) => string): string {
-		// 	let path = c.fileCheck(this);
-		// 	return path.ReplaceExt(modify(path.GetExt().Skip(1)));
-		// };
-		//
-		// String.prototype.ReplaceName = function (replacement: string): string {
-		// 	let path = c.fileCheck(this);
-		// 	if (replacement.Starts("/")) replacement = replacement.Skip(1);
-		// 	if (replacement.Ends(".")) replacement = replacement.Omit(1);
-		// 	return (path.GetDir().FormatDir() + replacement + path.GetExt()).FormatFile();
-		// };
-		//
-		// String.prototype.EditName = function (modify: (s: string) => string): string {
-		// 	let path = c.fileCheck(this);
-		// 	return path.ReplaceName(modify(path.GetName()));
-		// };
-		//
-		// String.prototype.ReplaceDir = function (replacement: string): string {
-		// 	let path = c.fileCheck(this);
-		// 	return (replacement.FormatDir() + path.split("/").pop()!.FormatFile()).FormatFile();
-		// };
-		//
-		// String.prototype.EditDir = function (modify: (s: string) => string): string {
-		// 	let path = c.fileCheck(this);
-		// 	return path.ReplaceDir(modify(path.GetDir()));
-		// };
-		//
-		// String.prototype.FormatDir = function (): string {
-		// 	let path = c.parseFile(this);
-		// 	if (!c.IsString(path)) c.t("directory cannot be empty");
-		// 	if (path.Starts("/")) path = path.Skip(1);
-		// 	if (!path.Ends("/")) path += "/";
-		// 	return path;
-		// };
-		//
-		// String.prototype.FormatFile = function () {
-		// 	let path = c.fileCheck(this);
-		// 	return path.Starts("/") ? path.Skip(1) : path;
-		// };
 		
-		
-		/*=================
-		 strings
-		 ==================*/
 		String.prototype.Match = function (regex: RegExp): string[] {
 			return this.match(regex) || [];
 		};
@@ -714,11 +566,6 @@ export class Kore implements Core {
 		Map.prototype.Values = function <K, V>(): V[] {
 			return Array.from(this.values());
 		};
-		Map.prototype.AsObject = function <K>(key: (k: K) => string = (k: K) => k.toString()): object {
-			let ret: any = {};
-			this.MapKey(key).Each((k, v) => ret[k] = v);
-			return ret;
-		};
 		Map.prototype.Find = function <K, V>(predicate: (k: K, v: V) => boolean): { key: K, value: V } | null {
 			let pair: [K, V] | null = this.Arr().Find(e => c.M(e, predicate));
 			if (pair == null) return null;
@@ -831,16 +678,6 @@ export class Kore implements Core {
 		return arr as T[];
 	}
 	
-	FlattenObject(obj: object): Map<string, any> {
-		let ret: Map<string, any> = new Map();
-		for (let k in obj) {
-			if (obj.hasOwnProperty(k)) {
-				ret.set(k, obj[k]);
-			}
-		}
-		return ret;
-	}
-	
 	Eq(a: any, b: any, deep: boolean): boolean {
 		if (deep) return this.DeepEqual(a, b);
 		return a === b;
@@ -912,22 +749,6 @@ export class Kore implements Core {
 		if (!this.IsNumber(a, true)) this.t("Invalid Number");
 	}
 	
-	// private fileCheck(path: any): string {
-	// 	if (!this.IsFile(path)) this.t("Invalid path: " + path);
-	// 	return this.parseFile(path);
-	// }
-	//
-	// // noinspection JSMethodCanBeStatic
-	// private parseFile(path: string): string {
-	// 	return path.ReplaceAll("\\\\", "/");
-	// }
-	//
-	// private IsFile(path: any): boolean {
-	// 	if (!this.IsString(path)) return false;
-	// 	let s: string = this.parseFile(path as string);
-	// 	if (s.Starts(".")) return true;
-	// 	return s.split('.').length > 1;
-	// }
 	
 }
 

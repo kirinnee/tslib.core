@@ -35,37 +35,7 @@ let core: Core = new Kore();
 core.ExtendPrimitives();
 
 describe("Core", () => {
-	// describe("SPACE", () => {
-	// 	it("should be equal to nbps;", () => {
-	// 		core.SPACE.should.equal("&nbsp;");
-	// 	});
-	// });
-	// describe("LEFT_TAG", () => {
-	// 	it("should be equal to &lt;", () => {
-	// 		core.LEFT_TAG.should.equal("&lt;");
-	// 	});
-	// });
-	// describe("RIGHT_TAG", () => {
-	// 	it("should be equal to &gt;", () => {
-	// 		core.RIGHT_TAG.should.equal("&gt;")
-	// 	});
-	//
-	// });
-	// describe("SINGLE_QUOTE", () => {
-	// 	it("should be equal to &#39;", () => {
-	// 		core.SINGLE_QUOTE.should.equal("&#39;");
-	// 	});
-	// });
-	// describe("DOUBLE_QUOTE", () => {
-	// 	it("should be equal to &quot;", () => {
-	// 		core.DOUBLE_QUOTE.should.equal("&quot;");
-	// 	});
-	// });
-	// describe("AMPERSAND", () => {
-	// 	it("should be equal to &amp;", () => {
-	// 		core.AMPERSAND.should.equal("&amp;");
-	// 	});
-	// });
+	
 	
 	describe("Extended", () => {
 		it("should be extended", () => {
@@ -742,29 +712,11 @@ describe("Core", () => {
 	
 	describe("WrapArray", () => {
 		it("should wrap the type in array if its not an array", () => {
-			core.WrapArray<string>("abc").should.deep.equal(["abc"]);
+			core.WrapArray("abc").should.deep.equal(["abc"]);
 		});
 		it("should return the array if it is already an array", () => {
-			core.WrapArray<string>(["abc"]).should.deep.equal(["abc"]);
-			core.WrapArray<string>(["a", "b"]).should.deep.equal(["a", "b"]);
-		});
-	});
-	
-	describe("FlattenObject", () => {
-		it("should flatten object into map", () => {
-			let obj: object = {
-				a: "A",
-				b: "B",
-				c: "C"
-			};
-			let expected: Map<string, any> = new Map([
-				["a", "A"],
-				["b", "B"],
-				["c", "C"]
-			]);
-			
-			core.FlattenObject(obj).Arr().should.deep.equal(expected.Arr());
-			
+			core.WrapArray(["abc"]).should.deep.equal(["abc"]);
+			core.WrapArray(["a", "b"]).should.deep.equal(["a", "b"]);
 		});
 	});
 	
