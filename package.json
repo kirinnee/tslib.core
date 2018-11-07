@@ -1,19 +1,19 @@
 {
-  "name": "@kirinnee/core",
-  "version": "0.0.1",
-  "description": "Typescript Library that extends primitives to simulate standard library. Provide multiple common and performant utility function to manipulate primitives. ",
-  "main": "index.js",
-  "license": "MIT",
-  "author": {
+	"name":          "@kirinnee/core",
+	"version":       "0.6.7",
+  "description":     "Typescript Library that extends primitives to simulate standard library. Provide multiple common and performant utility function to manipulate primitives. ",
+	"main":          "index.js",
+	"license":       "MIT",
+	"author":        {
     "name": "kirinnee",
     "email": "kirinnee@gmail.com"
   },
-  "repository": {
+	"repository":    {
     "type": "git",
     "url": "https://github.com/kirinnee/tslib.core.git"
   },
-  "types": "./types/index.d.ts",
-  "scripts": {
+	"types":         "./types/index.d.ts",
+	"scripts":       {
     "deploy": "node script deploy",
     "build": "node script wp dist",
     "dev": "node script wp dist -w",
@@ -24,7 +24,7 @@
     "minor": "node script publish minor",
     "major": "node script publish major"
   },
-  "dependencies": {},
+  "dependencies":    {},
   "devDependencies": {
     "@kirinnee/core": "^0.6.7",
     "@types/chai": "^4.1.6",

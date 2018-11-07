@@ -1,25 +1,24 @@
 {
   "check-coverage": true,
-  "include": [
-    "src/**/*.ts"
+	"include":      [
+		"**/*.ts"
   ],
-  "exclude": [
-    "src/index.ts",
-    "**/*.spec.ts",
-    "**/*.d.ts"
+	"exclude":      [
+		"config/",
+		"test/"
   ],
-  "extension": [
+	"extension":    [
     ".ts"
   ],
-  "register": [
+	"register":     [
     "ts-node/register"
   ],
-  "all": true,
-  "lines": 80,
-  "statements": 0,
-  "functions": 100,
-  "branches": 100,
-  "cache":false,
-  "instrument": true,
-  "sourceMap": true
+	"all":          true,
+	"lines":        99.7,
+	"statements":   0,
+	"functions":    100,
+	"branches":     95,
+	"cache":        false,
+	"instrument":   true,
+	"sourceMap":    true
 }
