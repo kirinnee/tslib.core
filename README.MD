@@ -16,14 +16,12 @@ Install via Yarn
 $ yarn add @kirinnee/core --prefer-offline
 ```
 
-if~target.web~
 Using in browser
 
-Attach scripts in `dist/` folder
+Attach scripts in `dist/` folder as the very first script (after polyfills)
 ```html
 <script src="./dist/@kirinnee/core.min.js"></script>
 ```
-if~target.web~
 
 ## Contributing
 Please read [CONTRIBUTING.md](CONTRIBUTING.MD) for details on our code of conduct, and the process for submitting pull requests to us.
