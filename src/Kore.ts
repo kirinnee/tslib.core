@@ -2,6 +2,9 @@
 import {SortType} from "./SortType";
 
 export class Kore implements Core {
+	AssertExtend(): void {
+		if (!this.IsExtended) this.t("Core needs to be extended");
+	}
 	// readonly SPACE: string = "&nbsp;";
 	// readonly LEFT_TAG: string = "&lt;";
 	// readonly RIGHT_TAG: string = "&gt;";

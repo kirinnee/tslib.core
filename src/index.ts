@@ -542,7 +542,6 @@ declare global {
 	
 	interface Map<K, V> {
 		
-		
 		/**
 		 * Delegate
 		 * @param method name to delegate to array
@@ -890,6 +889,12 @@ interface Core {
 	// readonly DOUBLE_QUOTE: string;
 	
 	IsExtended: boolean;
+	
+	/**
+	 * Assert that core has been extended, throws an error if core is not extended
+	 * @constructor
+	 */
+	AssertExtend(): void;
 	
 	/**
 	 * Check typeof variable is string

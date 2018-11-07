@@ -71,6 +71,11 @@ describe("Core", () => {
 		it("should be extended", () => {
 			core.IsExtended.should.be.true;
 		});
+		
+		it("should not throw error when exerted", () => {
+			core.AssertExtend();
+			
+		});
 	});
 	
 	describe("DeepEqual", () => {
