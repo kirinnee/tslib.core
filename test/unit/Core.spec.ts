@@ -728,4 +728,28 @@ describe("Core", () => {
 		});
 	});
 	
+	describe("FlattenObject", () => {
+		it("should Flatten the object into dot notation", () => {
+			let expected: Map<string, number[]> = new Map([
+				["a.b", [2, 3]],
+				["a.c", [3, 4]],
+				["a.d.one", [1, 2, 3]],
+				["a.d.two", [3, 4, 5]],
+				["b", [-1, -2]]
+			]);
+			let testSubj: object = {
+				a: {
+					b: [2, 3],
+					c: [3, 4],
+					d: {
+						one: [1, 2, 3],
+						two: [3, 4, 5]
+					}
+				},
+				b: [-1, -2]
+			};
+			core.FlattenObject(testSubj).Arr().should.deep.equal(expected.Arr());
+		});
+	});
+	
 });

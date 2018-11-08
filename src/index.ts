@@ -765,7 +765,11 @@ declare global {
 		 */
 		All(predicate: (k: K, v: V) => boolean): boolean;
 		
-		
+		/**
+		 * Returns the map to object using dot notation
+		 * @constructor
+		 */
+		AsObject(): object;
 	}
 	
 	interface Number {
@@ -874,12 +878,6 @@ declare global {
 }
 
 interface Core {
-	// readonly SPACE: string;
-	// 	// readonly LEFT_TAG: string;
-	// 	// readonly RIGHT_TAG: string;
-	// 	// readonly AMPERSAND: string;
-	// 	// readonly SINGLE_QUOTE: string;
-	// 	// readonly DOUBLE_QUOTE: string;
 	
 	IsExtended: boolean;
 	
@@ -977,6 +975,14 @@ interface Core {
 	 * @constructor
 	 */
 	Random(N: number): string;
+	
+	/**
+	 * Converts the object into a key value map, with the key as dot notation
+	 * Example - a:{b:"B"} => a.b: "B"
+	 * @param obj
+	 * @constructor
+	 */
+	FlattenObject(obj: object): Map<string, any>;
 	
 	ExtendPrimitives(): void;
 }

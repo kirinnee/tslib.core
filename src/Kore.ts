@@ -588,7 +588,15 @@ export class Kore implements Core {
 		};
 		Map.prototype.All = function <K, V>(predicate: (k: K, v: V) => boolean): boolean {
 			return this.Arr().All(e => c.M(e, predicate));
-		}
+		};
+		Map.prototype.AsObject = function (): object {
+			let ret: object = {};
+			this.Each((k: string, v: any) => {
+				let dot: string[] = k.split('.');
+				c.SV(ret, dot, v);
+			});
+			return ret;
+		};
 	}
 	
 	DeepEqual(a: any, b: any): boolean {
@@ -683,10 +691,58 @@ export class Kore implements Core {
 		return a === b;
 	}
 	
+	FlattenObject(obj: object): Map<string, any> {
+		return this.FO(obj);
+	}
+	
+	/**
+	 * Flatten object
+	 * @param obj
+	 * @param prepend
+	 * @constructor
+	 */
+	private FO(obj: any, prepend: string = ''): Map<string, any> {
+		let ret: Map<string, string> = new Map<string, string>();
+		for (let k in obj) {
+			if (obj.hasOwnProperty(k)) {
+				let data: any = obj[k];
+				if (this.NO(data)) {
+					ret.set(prepend + k, data);
+				} else {
+					ret = new Map(ret.Arr().Union(this.FO(data, prepend + k + ".").Arr(), true));
+				}
+			}
+		}
+		return ret;
+	}
+	
 	private I(a: any[], type: string) {
 		return this.IsArray(a) && a.every(item => typeof item === type);
 	}
 	
+	private NO(data: any): boolean {
+		return this.IsArray(data) || data instanceof RegExp || data instanceof Date || !this.TO(data, "object") || this.TO(data, "function");
+	}
+	
+	/**
+	 * Type Of, shortforms typeof
+	 * @param obj
+	 * @param type
+	 * @constructor
+	 */
+	private TO(obj: any, type: string): boolean {
+		return typeof obj === type;
+	}
+	
+	private SV(obj: any, dot: string[], value: any) {
+		let i: string = dot[0];
+		if (dot.length === 1) {
+			obj[i] = value;
+		} else {
+			if (this.TO(obj[i], "undefined")) obj[i] = {};
+			this.SV(obj[i], dot.Skip(1), value);
+		}
+	}
 	
 	/*============
 	 private methods
