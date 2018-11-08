@@ -673,9 +673,9 @@ export class Kore implements Core {
 		return [].Fill<string>(N, () => chars.Random()!).join('');
 	}
 	
-	WrapArray<T>(arr: T[] | T): T[] {
-		if (!this.IsArray(arr)) return [arr as T];
-		return arr as T[];
+	WrapArray(arr: any[] | any): any[] {
+		if (!this.IsArray(arr)) return [arr];
+		return arr;
 	}
 	
 	Eq(a: any, b: any, deep: boolean): boolean {

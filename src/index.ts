@@ -875,11 +875,11 @@ declare global {
 
 interface Core {
 	// readonly SPACE: string;
-	// readonly LEFT_TAG: string;
-	// readonly RIGHT_TAG: string;
-	// readonly AMPERSAND: string;
-	// readonly SINGLE_QUOTE: string;
-	// readonly DOUBLE_QUOTE: string;
+	// 	// readonly LEFT_TAG: string;
+	// 	// readonly RIGHT_TAG: string;
+	// 	// readonly AMPERSAND: string;
+	// 	// readonly SINGLE_QUOTE: string;
+	// 	// readonly DOUBLE_QUOTE: string;
 	
 	IsExtended: boolean;
 	
