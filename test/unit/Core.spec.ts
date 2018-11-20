@@ -752,4 +752,40 @@ describe("Core", () => {
 		});
 	});
 	
+	describe("FlattenClass", () => {
+		it("should flatten object literal to map base on constructor", () => {
+			//let vase:Mock2 = new Mock2("1",2);
+			let testSubj: any = {
+				a: {
+					b: new Mock2("1", 2)
+				},
+				c: {
+					d: new Mock2("2", 3)
+				}
+			};
+			let expected: Map<string, Mock2> = new Map([
+				["a.b", new Mock2("1", 2)],
+				["c.d", new Mock2("2", 3)]
+			]);
+			
+			core.FlattenClass<Mock2>(testSubj, (Mock2)).Arr().should.deep.equal(expected.Arr());
+		});
+		
+		it("should throw exception if object are not all of same type",()=>{
+			let testSubj: any = {
+				a: {
+					b: new Mock2("1", 2)
+				},
+				c: {
+					d: {
+						a: "2",
+						b: 3
+					}
+				}
+			};
+			
+			(()=>core.FlattenClass<Mock2>(testSubj, (Mock2))).should.throw("Needs to be object");
+		});
+	});
+	
 });

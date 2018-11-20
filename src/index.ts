@@ -984,6 +984,14 @@ interface Core {
 	 */
 	FlattenObject(obj: object): Map<string, any>;
 	
+	/**
+	 * Flatten object with certain constructor as value
+	 * @param obj object
+	 * @param ctr constructor
+	 * @constructor
+	 */
+	FlattenClass<T>(obj: object, ctr: Function): Map<string, T>
+	
 	ExtendPrimitives(): void;
 }
 

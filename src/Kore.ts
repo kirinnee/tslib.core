@@ -696,6 +696,39 @@ export class Kore implements Core {
 	}
 	
 	/**
+	 * Flatten object with certain constructor as value
+	 * @param obj object
+	 * @param ctr constructor
+	 * @constructor
+	 */
+	FlattenClass<T>(obj: object, ctr: Function): Map<string, T> {
+		return this.VO<T>(obj, "", ctr);
+	}
+	
+	/**
+	 * Type safe object flattening
+	 * @constructor
+	 */
+	private VO<T>(obj: any, prepend: string = '', ctr: Function): Map<string, T> {
+		let ret: Map<string, T> = new Map();
+		for (let k in obj) {
+			if (obj.hasOwnProperty(k)) {
+				let data: any = obj[k];
+				if (this.TO(data, "object")) {
+					if (data.constructor == ctr) {
+						ret.set(prepend + k, data);
+					} else {
+						ret = new Map(ret.Arr().Union(this.VO(data, prepend + k + ".", ctr).Arr() as [string, T][], true));
+					}
+				} else {
+					this.t("Needs to be object");
+				}
+			}
+		}
+		return ret;
+	}
+	
+	/**
 	 * Flatten object
 	 * @param obj
 	 * @param prepend
