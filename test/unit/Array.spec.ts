@@ -1,5 +1,6 @@
 import {should} from 'chai';
 import {Core, Kore, SortType} from "../../src";
+import {ISortType} from "../../src/SortType";
 import Should = Chai.Should;
 
 let Should: Should = should();
@@ -17,20 +18,9 @@ class Mock {
 	}
 }
 
+let sort: ISortType = new SortType();
+
 describe("Array", () => {
-	// describe("FilterEmptyString", () => {
-	//
-	// 	it("should remove all empty string from an array", () => {
-	// 		//setup
-	// 		// noinspection SpellCheckingInspection
-	// 		let sArr: string[] = ["abc", "  ", "ca3r", "kirin", "fab ricate", "        ", "~!@# !", "", " 123"];
-	// 		// noinspection SpellCheckingInspection
-	// 		let expected: string[] = ["abc", "ca3r", "kirin", "fab ricate", "~!@# !", " 123"];
-	//
-	// 		sArr.FilterEmptyString().should.deep.equal(expected);
-	// 	});
-	//
-	// });
 	
 	describe("TrimAll", () => {
 		it("should trim all strings in the array ", () => {
@@ -58,6 +48,7 @@ describe("Array", () => {
 					a: 12
 				}, {b: "coconuts", a: 7}, {b: "orange", a: 0}, {b: "Pear", a: -1}];
 				(() => obj.Sort(SortType.Ascending)).should.throw("Please provide scoring strategy");
+				(() => obj.Sort(sort.Ascending)).should.throw("Please provide scoring strategy");
 			});
 			
 			describe("with number array", () => {
@@ -67,6 +58,7 @@ describe("Array", () => {
 					let expected: number[] = [-1, 0, 1, 2, 3, 7, 12];
 					
 					nArr.Sort(SortType.Ascending).should.deep.equal(expected);
+					nArr.Sort(sort.Ascending).should.deep.equal(expected);
 				});
 				
 			});
@@ -87,6 +79,7 @@ describe("Array", () => {
 							, {b: "Coconut", a: 12}
 						];
 					nArr.Sort(SortType.Ascending, (i: Mock) => i.a).should.deep.equal(expected);
+					nArr.Sort(sort.Ascending, (i: Mock) => i.a).should.deep.equal(expected);
 				});
 				
 			});
@@ -101,6 +94,7 @@ describe("Array", () => {
 					a: 12
 				}, {b: "coconuts", a: 7}, {b: "orange", a: 0}, {b: "Pear", a: -1}];
 				(() => obj.Sort(SortType.Descending)).should.throw("Please provide scoring strategy");
+				(() => obj.Sort(sort.Descending)).should.throw("Please provide scoring strategy");
 				
 			});
 			describe("with number array", () => {
@@ -111,6 +105,7 @@ describe("Array", () => {
 					let expected: number[] = [12, 7, 3, 2, 1, 0, -1];
 					
 					nArr.Sort(SortType.Descending).should.deep.equal(expected);
+					nArr.Sort(sort.Descending).should.deep.equal(expected);
 				});
 				
 			});
@@ -133,6 +128,7 @@ describe("Array", () => {
 						];
 					
 					nArr.Sort(SortType.Descending, (i: Mock) => i.a).should.deep.equal(expected);
+					nArr.Sort(sort.Descending, (i: Mock) => i.a).should.deep.equal(expected);
 				});
 				
 			});
@@ -147,6 +143,7 @@ describe("Array", () => {
 					a: 12
 				}, {b: "coconuts", a: 7}, {b: "orange", a: 0}, {b: "Pear", a: -1}];
 				(() => obj.Sort(SortType.AtoZ)).should.throw("Please provide scoring strategy");
+				(() => obj.Sort(sort.AtoZ)).should.throw("Please provide scoring strategy");
 				
 			});
 			describe("with String array", () => {
@@ -158,6 +155,7 @@ describe("Array", () => {
 					//test
 					let expect: string[] = ["apple", "Apple", "Coconut", "coconuts", "orange", "pear", "Pear"];
 					sArr.Sort(SortType.AtoZ).should.deep.equal(expect);
+					sArr.Sort(sort.AtoZ).should.deep.equal(expect);
 				});
 				
 			});
@@ -184,6 +182,7 @@ describe("Array", () => {
 						];
 					
 					sArr.Sort(SortType.AtoZ, (s: Mock) => s.b).should.deep.equal(expect);
+					sArr.Sort(sort.AtoZ, (s: Mock) => s.b).should.deep.equal(expect);
 				});
 				
 			})
@@ -197,6 +196,7 @@ describe("Array", () => {
 					a: 12
 				}, {b: "coconuts", a: 7}, {b: "orange", a: 0}, {b: "Pear", a: -1}];
 				(() => obj.Sort(SortType.ZtoA)).should.throw("Please provide scoring strategy");
+				(() => obj.Sort(sort.ZtoA)).should.throw("Please provide scoring strategy");
 				
 			});
 			describe("with String array", () => {
@@ -210,6 +210,7 @@ describe("Array", () => {
 					let expect: string[] = ["Pear", "pear", "orange", "coconuts", "Coconut", "Apple", "apple"];
 					
 					sArr.Sort(SortType.ZtoA).should.deep.equal(expect);
+					sArr.Sort(sort.ZtoA).should.deep.equal(expect);
 				});
 				
 			});
@@ -235,6 +236,7 @@ describe("Array", () => {
 							, {b: "apple", a: 1}
 						];
 					sArr.Sort(SortType.ZtoA, (s: Mock) => s.b).should.deep.equal(expect);
+					sArr.Sort(sort.ZtoA, (s: Mock) => s.b).should.deep.equal(expect);
 				});
 				
 			})
@@ -267,17 +269,6 @@ describe("Array", () => {
 		});
 	});
 	
-	// describe("FilterNil", () => {
-	//
-	// 	it("should remove all null and undefined elements ", () => {
-	//
-	// 		let oArr: any[] = ["abc", 5, 7, "12", null, "abd", false, undefined, null, true, true, 7];
-	// 		let expected: any[] = ["abc", 5, 7, "12", "abd", false, true, true, 7];
-	// 		oArr.FilterNil().should.deep.equal(expected);
-	//
-	// 	});
-	//
-	// });
 	
 	describe("Has", () => {
 		

@@ -1,5 +1,4 @@
 ﻿import {Core} from "./index";
-import {SortType} from "./SortType";
 
 export class Kore implements Core {
 	AssertExtend(): void {
@@ -245,7 +244,7 @@ export class Kore implements Core {
 				}
 			}
 			if (Definier == null) Definier = (a => a) as any;
-			let o = (type === SortType.Ascending || type === SortType.AtoZ) ? 1 : -1;
+			let o = (!type.Reverse) ? 1 : -1;
 			let f: Function = (a, b) => (type.IsNum ? (Definier!(a) > Definier!(b) ? 1 : -1) : c.lc(Definier!(a) as string, Definier!(b) as string)) * o;
 			nArr.sort(f);
 			return nArr;

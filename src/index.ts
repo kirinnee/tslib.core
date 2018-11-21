@@ -874,6 +874,7 @@ declare global {
 	
 	interface SortMethod {
 		IsNum: boolean;
+		Reverse: boolean;
 	}
 }
 
