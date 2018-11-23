@@ -209,6 +209,10 @@ export class Kore implements Core {
 			return this.RandomTo(this + to - 1, integer);
 		};
 		
+		Array.prototype.Add = function <T>(e: T | T[]): T[] {
+			return this.concat(c.WrapArray(e));
+		};
+		
 		Array.prototype.Flatten = function <X>(): X[] {
 			return this.length === 0 ? [] : this.Reduce((a, b) => a.concat(b));
 		};

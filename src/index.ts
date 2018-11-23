@@ -241,6 +241,13 @@ declare global {
 	interface Array<T> {
 		
 		/**
+		 * Concatenates with another array
+		 * @param e array or array element
+		 * @constructor
+		 */
+		Add(e: T | T[]): T[]
+		
+		/**
 		 * Flattens the first tier of array
 		 * @constructor
 		 */

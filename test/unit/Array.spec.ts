@@ -22,6 +22,15 @@ let sort: ISortType = new SortType();
 
 describe("Array", () => {
 	
+	describe("Add", () => {
+		it("should concatenate with element", () => {
+			[1, 2, 3].Add(3).should.deep.equal([1, 2, 3, 3]);
+		});
+		it("should concatenate with another array", () => {
+			[1, 2, 3].Add([1, 2, 3]).should.deep.equal([1, 2, 3, 1, 2, 3]);
+		});
+	});
+	
 	describe("TrimAll", () => {
 		it("should trim all strings in the array ", () => {
 			
