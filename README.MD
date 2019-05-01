@@ -2,6 +2,10 @@
 
 Typescript Library that extends primitives to simulate standard library. Provide multiple common and performant utility function to manipulate primitives. 
 
+Source: [GitLab](https://gitlab.com/node-packages-kirin/core)
+
+Mirror: [GitHub](https://github.com/kirinnee/tslib.core)
+
 # Getting Started
 
 Install via NPM 

@@ -1,0 +1,44 @@
+stages:
+  - install
+  - test
+  - build
+  - publish
+
+cache:
+  paths:
+    - node_modules/
+
+Install:
+  stage: install
+  tags:
+    - npm
+  script: yarn install --prefer-offline
+
+Test:
+    stage: test
+    tags:
+      - npm
+    script: yarn test
+
+Build:
+  stage: build
+  tags:
+    - npm
+  script: yarn build
+  artifacts:
+    paths:
+      - dist/
+      - types/
+
+Deploy:
+  only:
+    - /^v.*$/
+  except:
+    - branches
+  stage: publish
+  tags:
+    - npm
+  script:
+    - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+    - npm publish
+
